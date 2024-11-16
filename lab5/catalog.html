@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Каталог - Интернет-магазин видеокарт</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <header>
+        <div class="header-top">
+            <div class="shop-title">Интернет-магазин по продаже видеокарт</div>
+        </div>
+        <div class="header-bottom">
+            <div class="logo">
+                <img src="images/logo.png" alt="Логотип">
+            </div>
+            <nav class="menu">
+                <button>Все категории</button>
+                <button>Оплата</button>
+                <button>Контакты</button>
+                <button>Новости</button>
+            </nav>
+        </div>
+    </header>
+
+    <main class="main-content">
+        <h1 class="catalog-title">Каталог видеокарт</h1>
+        
+        <!-- Поле поиска с классом для стилей -->
+        <input type="text" id="searchInput" class="search-input" placeholder="Поиск видеокарт..." />
+        <button class="update-products">Обновить каталог</button>
+        <div class="product-list">
+            
+            </div>
+        </div>
+    </main>
+
+    <footer>
+        <button>О компании</button>
+        <button>Главная</button>
+        <button>Каталог</button>
+    </footer>
+
+    <!-- Подключение Bootstrap и JavaScript -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="script.js"></script>
+    <script>
+        document.addEventListener("DOMContentLoaded", function() {
+            // Функция для загрузки товаров из базы данных
+            function loadProducts() {
+                fetch('get_products.php')
+                    .then(response => response.json())
+                    .then(products => {
+                        // Очистим контейнер продуктов перед обновлением
+                        const productContainer = document.querySelector('.product-list');
+                        productContainer.innerHTML = '';
+        
+                        // Перебираем каждый продукт и добавляем в контейнер
+                        products.forEach(product => {
+                            const productElement = document.createElement('div');
+                            productElement.classList.add('product-item');
+                            productElement.innerHTML = `
+                                <img src="images/${product.image}" alt="${product.name}">
+                                <p class="product-name">${product.name}</p>
+                                <p>${product.price} ₽</p>
+                                <a href="product.html?id=${product.id}">Подробнее</a>
+                            `;
+                            productContainer.appendChild(productElement);
+                        });
+                    })
+                    .catch(error => console.error('Ошибка при загрузке продуктов:', error));
+            }
+        
+            // Загрузка продуктов при загрузке страницы
+            loadProducts();
+        
+            // Пример обновления данных при нажатии на кнопку
+            document.querySelector('.update-products').addEventListener('click', loadProducts);
+        });
+        </script>        
+</body>
+</html>

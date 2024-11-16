@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Каталог - Интернет-магазин видеокарт</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <header>
+        <div class="header-top">
+            <div class="shop-title">Интернет-магазин по продаже видеокарт</div>
+        </div>
+        <div class="header-bottom">
+            <div class="logo">
+                <img src="images/logo.png" alt="Логотип">
+            </div>
+            <nav class="menu">
+                <button>Все категории</button>
+                <button>Оплата</button>
+                <button>Контакты</button>
+                <button>Новости</button>
+            </nav>
+        </div>
+    </header>
+
+    <main class="main-content">
+        <h1 class="catalog-title">Каталог видеокарт</h1>
+        
+        <!-- Поле поиска с классом для стилей -->
+        <input type="text" id="searchInput" class="search-input" placeholder="Поиск видеокарт..." />
+
+        <div class="product-list">
+            <div class="product-item">
+                <img src="images/rtx4090.jpg" alt="NVIDIA RTX 4090">
+                <p class="product-name">NVIDIA RTX 4090</p>
+                <p>100 000 ₽</p>
+                <a href="product.html">Подробнее</a>
+            </div>
+            <div class="product-item">
+                <img src="images/rtx4090.jpg" alt="NVIDIA RTX 4080">
+                <p class="product-name">NVIDIA RTX 4080</p>
+                <p>70 000 ₽</p>
+                <a href="product.html">Подробнее</a>
+            </div>
+            <div class="product-item">
+                <img src="images/rtx4090.jpg" alt="NVIDIA RTX 4070">
+                <p class="product-name">NVIDIA RTX 4070</p>
+                <p>50 000 ₽</p>
+                <a href="product.html">Подробнее</a>
+            </div>
+            <div class="product-item">
+                <img src="images/rtx4090.jpg" alt="AMD Radeon RX 6800 XT">
+                <p class="product-name">AMD Radeon RX 6800 XT</p>
+                <p>45 000 ₽</p>
+                <a href="product.html">Подробнее</a>
+            </div>
+        </div>
+    </main>
+
+    <footer>
+        <button>О компании</button>
+        <button>Главная</button>
+        <button>Каталог</button>
+    </footer>
+
+    <!-- Подключение Bootstrap и JavaScript -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="script.js"></script>
+</body>
+</html>
